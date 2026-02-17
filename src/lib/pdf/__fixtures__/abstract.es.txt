@@ -1,0 +1,8 @@
+Titulo del articulo
+
+Resumen:
+Este trabajo revisa evidencia clinica reciente en pacientes adultos.
+Los resultados muestran beneficios modestos con heterogeneidad alta.
+
+Introduccion
+Se presenta el contexto general del problema.

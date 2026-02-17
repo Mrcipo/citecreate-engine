@@ -1,0 +1,9 @@
+Title of the paper
+
+Abstract
+This study evaluates intervention X in adults with condition Y.
+We observed meaningful changes in outcomes after 12 weeks.
+Limitations include sample size and short follow-up.
+
+1 Introduction
+The burden of condition Y is increasing worldwide.
