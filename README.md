@@ -142,17 +142,3 @@ Current coverage includes:
 - Export currently supports PNG/JPEG via Playwright (no PDF render yet).
 - Template set is intentionally minimal (`carousel_basic`, `myth_vs_fact`, `clinical_summary`).
 
-## Roadmap
-- Add `OpenAIProvider` implementing the same `LLMProvider` interface.
-- Add queue/worker execution mode for background processing.
-- Add richer export templates and design systems.
-- Add auth and per-user workspaces.
-- Add observability dashboards for stage-level metrics.
-
-## Portfolio Checklist
-- [x] Modular architecture with clear boundaries.
-- [x] Strong schema-first contracts (Zod + TypeScript).
-- [x] Database-backed orchestration with stage telemetry.
-- [x] Multi-LLM resiliency strategy.
-- [x] Automated tests for core behaviors.
-- [x] Visual export artifacts for recruiter demos.
