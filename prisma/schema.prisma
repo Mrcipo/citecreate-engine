@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum DocumentStatus {
+  PENDING
+  PROCESSING
+  READY
+  FAILED
+}
+
+enum JobStage {
+  INGEST
+  PARSE_PDF
+  METADATA_ENRICH
+  EXTRACTION
+  POST_GENERATION
+  EXPORT_RENDER
+}
+
+enum RunStatus {
+  PENDING
+  RUNNING
+  SUCCEEDED
+  FAILED
+}
+
+enum Platform {
+  LINKEDIN
+  X
+  THREADS
+  BLUESKY
+}
+
+model Document {
+  id          String         @id @default(cuid())
+  filename    String
+  hash        String         @unique
+  storagePath String
+  status      DocumentStatus @default(PENDING)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  metadata    DocumentMetadata?
+  extraction  Extraction?
+  postVariants PostVariant[]
+  jobRuns     JobRun[]
+}
+
+model DocumentMetadata {
+  documentId       String   @id
+  title            String?
+  authorsJson      Json?
+  year             Int?
+  doi              String?  @unique
+  url              String?
+  isOpenAccess     Boolean  @default(false)
+  oaUrl            String?
+  retractionStatus String?
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+}
+
+model Extraction {
+  documentId      String   @id
+  extractedJson   Json?
+  schemaVersion   String
+  confidenceScore Float?
+  createdAt       DateTime @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+}
+
+model PostVariant {
+  id            String   @id @default(cuid())
+  documentId    String
+  platform      Platform
+  tone          String
+  length        String
+  contentText   String
+  citationsJson Json?
+  createdAt     DateTime @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  exports  Export[]
+}
+
+model Export {
+  id            String   @id @default(cuid())
+  postVariantId String
+  templateId    String
+  imagePath     String?
+  format        String
+  createdAt     DateTime @default(now())
+
+  postVariant PostVariant @relation(fields: [postVariantId], references: [id], onDelete: Cascade)
+}
+
+model JobRun {
+  id           String    @id @default(cuid())
+  documentId   String
+  stage        JobStage
+  status       RunStatus @default(PENDING)
+  durationMs   Int?
+  errorMessage String?
+  createdAt    DateTime  @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+}
