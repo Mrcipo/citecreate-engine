@@ -37,7 +37,7 @@ body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
 .h-full { height:100%; }
 .p-14 { padding:3.5rem; }
 .grid { display:grid; }
-.grid-cols-2 { grid-template-columns:1fr 1fr; }
+.grid-cols-2 { grid-template-columns:1fr 1fr; grid-template-rows:1fr auto; }
 .gap-6 { gap:1.5rem; }
 .col-span-2 { grid-column:span 2 / span 2; }
 .bg-zinc-950 { background:#09090b; }

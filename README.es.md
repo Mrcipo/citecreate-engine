@@ -20,6 +20,19 @@ Plataforma modular de inteligencia documental con IA: procesa PDFs, enriquece su
 - Motor de exportación con plantillas HTML a imagen mediante Playwright.
 - UI responsive para cargar documentos, seguir el procesamiento, editar posts y generar assets.
 
+## Capturas
+
+Pantalla de carga (build de producción local, base vacía):
+
+![Pantalla de carga y documentos](docs/screenshots/home.png)
+
+Las tres plantillas de exportación renderizadas por las plantillas HTML-a-imagen del motor. El texto es
+contenido de ejemplo escrito para la captura, no una salida del pipeline con LLM (que requiere API keys):
+
+| `carousel_basic` | `myth_vs_fact` | `clinical_summary` |
+|---|---|---|
+| ![carousel_basic](docs/screenshots/template-carousel_basic.png) | ![myth_vs_fact](docs/screenshots/template-myth_vs_fact.png) | ![clinical_summary](docs/screenshots/template-clinical_summary.png) |
+
 ## Arquitectura (por capas)
 - `app/`: páginas del App Router de Next.js y handlers de la API.
 - `src/contracts/`: esquemas Zod y tipos TS inferidos para los contratos de extracción y de posts.

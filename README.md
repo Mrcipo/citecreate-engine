@@ -20,6 +20,19 @@ Modular platform/engine that ingests PDFs, enriches metadata, extracts evidence 
 - Export engine with Playwright HTML-to-image templates.
 - Responsive UI for upload, processing, editing posts, and generating assets.
 
+## Screenshots
+
+Upload screen (local production build, empty database):
+
+![Upload and documents screen](docs/screenshots/home.png)
+
+The three export templates rendered by the engine's HTML-to-image templates. The text is placeholder
+content written for the capture, not output of the LLM pipeline (which needs API keys):
+
+| `carousel_basic` | `myth_vs_fact` | `clinical_summary` |
+|---|---|---|
+| ![carousel_basic](docs/screenshots/template-carousel_basic.png) | ![myth_vs_fact](docs/screenshots/template-myth_vs_fact.png) | ![clinical_summary](docs/screenshots/template-clinical_summary.png) |
+
 ## Architecture (Layered)
 - `app/`: Next.js App Router pages + API route handlers.
 - `src/contracts/`: Zod schemas and inferred TS types for extraction/post contracts.
