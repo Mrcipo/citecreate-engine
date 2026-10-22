@@ -1,10 +1,14 @@
 # CiteCreate Engine
 
+🌐 **English** · [Español](README.es.md)
+
+[![CI](https://github.com/Mrcipo/citecreate-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/Mrcipo/citecreate-engine/actions/workflows/ci.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Tests-Vitest-6E9F18?logo=vitest&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 Modular platform/engine that ingests PDFs, enriches metadata, extracts evidence claims with LLMs, generates social-ready post variants, and exports portfolio visuals (PNG/JPEG).
 
@@ -128,11 +132,13 @@ Type-check + lint + tests:
 npm run check
 ```
 
-Current coverage includes:
+Current coverage (23 unit tests) includes:
 - contract validation schemas,
 - DOI/abstract extraction logic,
 - external client parsing + error handling,
 - LLM router retry/fallback behavior.
+
+The same `npm run check` runs on every push through GitHub Actions.
 
 ## Limitations
 - Safe mode is enforced when OA is false/unknown:
@@ -141,4 +147,7 @@ Current coverage includes:
 - Unpaywall enrichment is best-effort and may be partial.
 - Export currently supports PNG/JPEG via Playwright (no PDF render yet).
 - Template set is intentionally minimal (`carousel_basic`, `myth_vs_fact`, `clinical_summary`).
+
+## License
+[MIT](LICENSE)
 
